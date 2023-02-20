@@ -51,6 +51,7 @@ def mountInsert(table, head, data):
 
     # mount header
     for indexData, dataHead in enumerate(head) :
+        dataHead = dataHead.replace(" ", "_")
         if indexData < (len(head) - 2):
             header += f"{dataHead},"
         else:
@@ -101,3 +102,8 @@ def createTable(header, nameTable):
     
     model = f"CREATE TABLE {nameTable}({attributes})"
     executeQuery(connection, model)
+
+def executeInsert(insert):
+    for value in insert:
+        if len(value):
+            executeQuery(connection, value)

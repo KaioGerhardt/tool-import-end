@@ -1,21 +1,14 @@
 import csv
 from functionFiles import *
 from functionDB import *
+from globals import GLOBALS
+from functionsGlobals import *
 
 def main():
-    
-    path = input("Favor, informe o path do arquivo: ")
-    path = "table_name.csv"
-    table = path.replace(".csv", "")
+    GLOBAL = GLOBALS(readJSON())
 
-    dataFile = readFile(path)
-
-    dataSQL = managementSQL(dataFile)
-    createTable(dataSQL["header"], "name_table")
-    arrInsert = mountInsert(table, dataSQL["header"], dataSQL["data"])
-
-    writeFile("teste2.txt", arrInsert)
-
+    if GLOBAL["CSV_TO_SQL"]["usable"]:
+        csvToSql(GLOBAL["CSV_TO_SQL"]["config"])
 
 main()
 

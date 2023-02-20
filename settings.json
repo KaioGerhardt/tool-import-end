@@ -13,11 +13,12 @@
         "name": "tools",
         "resources": {
             "1": {
-                "usabled": true,
+                "usable": true,
                 "name": "csv-to-sql",
-                "descri": "tranforma arquivos csv em instruções sql, executando as instruções diretamente no banco.",
+                "descri": "Tranforma arquivos csv em instruções sql, executando as instruções diretamente no banco.",
                 "config": {
-                    "path": "",
+                    "inputPath": "",
+                    "outputPath": "",
                     "nameTable": ""
                 }
             }
