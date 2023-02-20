@@ -9,6 +9,8 @@ def main():
 
     if GLOBAL["CSV_TO_SQL"]["usable"]:
         csvToSql(GLOBAL["CSV_TO_SQL"]["config"])
+    elif GLOBAL["SQL_TO_CSV"]["usable"]:
+        sqlToCsv(GLOBAL["SQL_TO_CSV"]["config"])
 
 main()
 

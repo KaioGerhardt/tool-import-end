@@ -22,13 +22,24 @@ def readFile(path):
             content.append(line)
     return content
 
-def writeFile(nameArchive, dataLine):
+def writeFileTxt(nameArchive, dataLine):
     file = open(nameArchive, "a")
 
     for dataContent in dataLine:
         file.write(dataContent)
         
     file.close()
+
+def writeFileCsv(nameArchive, data, header):
+    header = header.split(";")
+
+    with open(nameArchive, mode='w', newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter=';')
+        writer.writerow(header)
+
+        for indedx, value in enumerate(data):
+            writer.writerow(value)
+            print(value)
 
 def managementSQL(dataFile):
     content = []
@@ -107,3 +118,7 @@ def executeInsert(insert):
     for value in insert:
         if len(value):
             executeQuery(connection, value)
+
+def queryCSV(sql, path, header):
+    result = readQuery(connection, sql)
+    writeFileCsv(path, result, header)

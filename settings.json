@@ -13,13 +13,23 @@
         "name": "tools",
         "resources": {
             "1": {
-                "usable": true,
+                "usable": false,
                 "name": "csv-to-sql",
                 "descri": "Tranforma arquivos csv em instruções sql, executando as instruções diretamente no banco.",
                 "config": {
                     "inputPath": "",
                     "outputPath": "",
                     "nameTable": ""
+                }
+            },
+            "2":{
+                "usable": false,
+                "name": "sql-to-csv",
+                "descri": "Transforma um SQL em um arquivo CSV, com base em uma query passada!",
+                "config": {
+                    "nameFile": "",
+                    "header": "",
+                    "query": ""
                 }
             }
         }

@@ -10,4 +10,7 @@ def csvToSql(config):
     createTable(dataSQL["header"], table)
     arrInsert = mountInsert(table, dataSQL["header"], dataSQL["data"])
     executeInsert(arrInsert)
-    writeFile(outputPath, arrInsert)
+    writeFileTxt(outputPath, arrInsert)
+
+def sqlToCsv(config):
+    queryCSV(config["query"], config["nameFile"], config["header"])
