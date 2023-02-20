@@ -1,7 +1,17 @@
 import csv
 from functionDB import *
+import json
+from globals import GLOBALS
 
-connection = createServerConnection("localhost", "root", "", "laravel")
+def readJSON():
+    with open('settings.json') as file:
+        inputFile = json.load(file) 
+    
+    return inputFile
+
+# connection data base
+GLOBAL = GLOBALS(readJSON())
+connection = createServerConnection(GLOBAL["HOST_NAME"], GLOBAL["USER_NAME"], GLOBAL["PASSWORD"], GLOBAL["DB_NAME"])
 
 def readFile(path):
     content  = []
@@ -85,11 +95,9 @@ def createTable(header, nameTable):
     for index, value in enumerate(head["newHeader"]):
         value = value.replace(" ", "_")
         if index < cont:
-            attributes += f"'{value}' varchar(255),"
-            # typeAttrivbute += f"varchar(255),"
+            attributes += f"{value} varchar(255),"
         else:
-            attributes += f"'{value}' varchar(255)"
-            typeAttrivbute += f"varchar(255)"
+            attributes += f"{value} varchar(255)"
     
     model = f"CREATE TABLE {nameTable}({attributes})"
     executeQuery(connection, model)

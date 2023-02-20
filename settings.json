@@ -1,0 +1,26 @@
+[
+    {
+        "name": "configDataBase",
+        "descri": "Configurações do DB, são obrigatórias!",
+        "config": {
+            "hostName": "localhost",
+            "userName": "root",
+            "passwd": "", 
+            "dbName": "laravel"
+        }
+    },
+    {
+        "name": "tools",
+        "resources": {
+            "1": {
+                "usabled": true,
+                "name": "csv-to-sql",
+                "descri": "tranforma arquivos csv em instruções sql, executando as instruções diretamente no banco.",
+                "config": {
+                    "path": "",
+                    "nameTable": ""
+                }
+            }
+        }
+    }
+]
